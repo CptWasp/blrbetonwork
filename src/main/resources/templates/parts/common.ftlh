@@ -10,8 +10,8 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-
+<!--    <link rel="stylesheet" href="styles.css">-->
+    <link rel="icon" type="image/png" href="brick.png">
     <title>Сайт база данных</title>
 </head>
 <body>
@@ -24,7 +24,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" href="/">Главная</a>
+                <a class="nav-link" href="/warehouse">Склад</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/production">Изготовление</a>
