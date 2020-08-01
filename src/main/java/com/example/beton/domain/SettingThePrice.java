@@ -21,8 +21,8 @@ public class SettingThePrice {
     public SettingThePrice() {
     }
 
-    public SettingThePrice(String wireprice, String armatureprice,
-                           String gridprice, String betonprice, String pricedate) {
+    public SettingThePrice(String pricedate, String wireprice, String armatureprice,
+                           String gridprice, String betonprice) {
         this.wireprice = wireprice;
         this.armatureprice = armatureprice;
         this.gridprice = gridprice;
