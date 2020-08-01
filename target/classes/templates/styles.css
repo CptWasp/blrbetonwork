@@ -1,0 +1,10 @@
+    @media (max-width: 992px) {
+      td, th {
+          font-size: 1em;
+        }
+    }
+    @media (max-width: 576px) {
+      td, th {
+          font-size: 0.6em;
+        }
+    }
