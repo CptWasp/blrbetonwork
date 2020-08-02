@@ -12,17 +12,16 @@
                 </div>
                 <div class="form-group">
                     <select class="form-control" name="salename">
-                        <option class="dropdown-item" value="Полимерный бетон">Полимерный бетон</option>
-                        <option class="dropdown-item" value="Сверхлёгкий и Лёгкий бетон">Сверхлёгкий и Лёгкий бетон</option>
-                        <option class="dropdown-item" value="Тяжёлый и сверхтяжёлый бетон">Тяжёлый и сверхтяжёлый бетон</option>
+                        <#list adminproductions as adminproduction>
+                        <option class="dropdown-item" value="${adminproduction.adminproductname?string}">${adminproduction.adminproductname?string}</option>
+                    </#list>
                     </select>
-
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="saletotal" placeholder="Количество" />
+                    <input type="text" class="form-control" name="saletotal" placeholder="Цена" />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="salecount" placeholder="Сколько человек" />
+                    <input type="text" class="form-control" name="salecount" placeholder="Количество" />
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
                 <div class="form-group">

@@ -1,8 +1,10 @@
 package com.example.beton.controller;
 
+import com.example.beton.domain.AdminProductions;
 import com.example.beton.domain.Production;
 import com.example.beton.domain.Sales;
 import com.example.beton.domain.User;
+import com.example.beton.repos.AdminProductRepo;
 import com.example.beton.repos.SaleRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -17,12 +19,16 @@ import java.util.Map;
 public class SalesController {
     @Autowired
     private SaleRepo saleRepo;
+    @Autowired
+    private AdminProductRepo adminproductionsRepo;
 
 
 
     @GetMapping("/sales")
     public String main(Map<String, Object> model){
         Iterable<Sales> sales = saleRepo.findAll();
+        Iterable<AdminProductions> adminproductions = adminproductionsRepo.findAll();
+        model.put("adminproductions", adminproductions);
         model.put("sales", sales);
         return "sales";
     }
@@ -38,6 +44,9 @@ public class SalesController {
         saleRepo.save(sale);
 
         Iterable<Sales> sales = saleRepo.findAll();
+        Iterable<AdminProductions> adminproductions = adminproductionsRepo.findAll();
+
+        model.put("adminproductions", adminproductions);
         model.put("sales", sales);
 
         return "sales";
