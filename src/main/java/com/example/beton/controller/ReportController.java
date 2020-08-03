@@ -33,6 +33,18 @@ public class ReportController {
         Integer[] prices = new Integer[20];
 //        массив проданных товаров
         Integer[] salecount = new Integer[20];
+//        массив цен на проданные изделия
+        Double[] saletotal = new Double[20];
+//        массив параметров использования бетона
+        Double[] btncount = new Double[20];
+//        массив параметров использования арматуры
+        Double[] armaturecount = new Double[20];
+//        массив параметров использования проволоки
+        Double[] wirecount = new Double[20];
+//        массив параметров использования сетки
+        Double[] gridcount = new Double[20];
+//        Сумма всех продаж
+        Double reportsumm = 0.0;
 
         /*##############################################*/
         /*############## сверху Массивы ################*/
@@ -59,7 +71,7 @@ public class ReportController {
                     prCount += Integer.parseInt(pr.getProdcount());
                 }
                 prices[i] = prCount;
-                System.out.println(ad +" : "+ prCount);
+//                System.out.println(ad +" : "+ prCount);
                 i++;
             }
         }
@@ -76,13 +88,52 @@ public class ReportController {
                     slCount += Integer.parseInt(sl.getSalecount());
                 }
                 salecount[j] = slCount;
-                System.out.println(sp +" : "+ slCount);
+//                System.out.println(sp +" : "+ slCount);
                 j++;
             }
         }
 
+//        общая сумма
+//        for (Double summ : saletotal) {
+//            reportsumm += summ;
+//            System.out.println(summ+":"+reportsumm);
+//        }
 
+//        Получение цен на проданные товары
+        Integer foo = 0;
+        for (String st : adminProductArray) {
+            Double stCount = 0.0;
 
+            if (st!=null){
+                Iterable<Sales> salestotal = saleRepo.findBySalename(st);
+
+                for (Sales slt : salestotal) {
+                    stCount += Double.parseDouble(slt.getSaletotal());
+                }
+                saletotal[foo] = stCount*salecount[foo];
+                reportsumm+=stCount*salecount[foo];
+//                System.out.println(st +" : "+ stCount);
+                foo++;
+            }
+        }
+
+//        Получение использования количества бетон
+//        Получение использования количества арматуры
+//        Получение использования количества проволки
+//        Получение использования количества сетки
+        Integer b_count = 0;
+        Iterable<AdminProductions> beton_w = adminProductRepo.findAll();
+        for (AdminProductions bt_w : beton_w){
+            btncount[b_count] = Double.parseDouble(bt_w.getAdminproductbeton())*salecount[b_count];
+            armaturecount[b_count] = Double.parseDouble(bt_w.getAdminproductarmature())*salecount[b_count];
+            wirecount[b_count] = Double.parseDouble(bt_w.getAdminproductwire())*salecount[b_count];
+            gridcount[b_count] = Double.parseDouble(bt_w.getAdminproductgrid())*salecount[b_count];
+            System.out.println(adminProductArray[b_count]+"=> Сделано:"+prices[b_count]+"=> продано:"+
+                    salecount[b_count]+"=> в руб:"+saletotal+"=>  бетон:"+btncount[b_count]+"=> арматура:"+
+                    armaturecount[b_count]+"=> проволока:"+
+                    wirecount[b_count]+"=> сетка:"+gridcount[b_count]);
+            b_count++;
+        }
 
 
 
@@ -91,6 +142,13 @@ public class ReportController {
         model.put("ad", adminProductArray);
         model.put("prc", prices);
         model.put("slcnts", salecount);
+        model.put("sattls", saletotal);
+        model.put("btnwghts", btncount);
+        model.put("armwghts", armaturecount);
+        model.put("wirewghts", wirecount);
+        model.put("gridwghts", gridcount);
+        model.put("reportsumm", reportsumm);
+
 
         return "report";
     }

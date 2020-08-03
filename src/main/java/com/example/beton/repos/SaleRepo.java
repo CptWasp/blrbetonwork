@@ -8,4 +8,5 @@ import java.util.List;
 public interface SaleRepo extends CrudRepository<Sales, Integer> {
 
     List<Sales> findBySalename(String salename);
+    List<Sales> findBySaletotal(String saletotal);
 }
