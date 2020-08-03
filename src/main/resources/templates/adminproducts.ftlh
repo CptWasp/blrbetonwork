@@ -50,37 +50,51 @@
 
     </div>
 </nav>
-<a class="btn btn-primary my-3 mx-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-    Добавить новый товар (Админ)</a>
-<div class="collapse" id="collapseExample">
-    <div class="form-group col-sm-10 col-md-6 mt-3">
-        <form method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                <input type="text" name="adminproductname" class="form-control" placeholder="Номенклатура 'ФБС 4'" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="adminproductbeton" class="form-control" placeholder="Бетон, м^3 '0.00'" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="adminproductwire" class="form-control" placeholder="Проволока, м '0.00'" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="adminproductarmature" class="form-control" placeholder="Армрматура, м '0.00'" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="adminproductgrid" class="form-control" placeholder="Сетка, м '0.00'" />
-            </div>
-            <div class="form-group">
-                <input type="text" name="adminproducttotal" class="form-control" placeholder="Стоимость работы, руб. '0.00'" />
-            </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <a class="btn btn-primary my-3 mx-3" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                Добавить новый товар (Админ)</a>
+            <div class="collapse" id="collapseExample">
+                <div class="form-group col-sm-10 col-md-6 mt-3">
+                    <form method="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="text" name="adminproductname" class="form-control" placeholder="Номенклатура 'ФБС 4'" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adminproductbeton" class="form-control" placeholder="Бетон, м^3 '0.00'" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adminproductwire" class="form-control" placeholder="Проволока, м '0.00'" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adminproductarmature" class="form-control" placeholder="Армрматура, м '0.00'" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adminproductgrid" class="form-control" placeholder="Сетка, м '0.00'" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="adminproducttotal" class="form-control" placeholder="Стоимость работы, руб. '0.00'" />
+                        </div>
 
-            <input type="hidden" name="_csrf" value="${_csrf.token}" />
-            <div class="form-group">
-                <button type="submit" class="form-control btn btn-success">Добавить</button>
+                        <input type="hidden" name="_csrf" value="${_csrf.token}" />
+                        <div class="form-group">
+                            <button type="submit" class="form-control btn btn-success">Добавить</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-        </form>
+        </div>
+
+
+
+        <div class="col-6 col-sm-6 col-md-6 col-lg-6">
+            <a class="btn btn-danger my-3 mx-3" href="/removeproduct" >
+                Перейти к удалению? (Админ)</a>
+        </div>
     </div>
 </div>
+
 
 <br>
 

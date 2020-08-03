@@ -55,7 +55,14 @@ public class ProductionController {
         Iterable<Production> productions = productionRepo.findAll();
         Iterable<AdminProductions> adminproductions = adminproductionsRepo.findAll();
 
+        Integer whCount = 0;
         List<Warehouse> warehouse = warehouseRepo.findByWarehousename(prodname);
+        for (Warehouse wh : warehouse){
+            whCount = Integer.parseInt(wh.getWarehousecount());
+            whCount+= Integer.parseInt(prodcount);
+            wh.setWarehousecount(whCount.toString());
+            warehouseRepo.save(wh);
+        }
 
 
         model.put("productions", productions);

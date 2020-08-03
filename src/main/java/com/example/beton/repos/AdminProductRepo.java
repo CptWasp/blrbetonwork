@@ -7,4 +7,5 @@ import java.util.List;
 
 public interface AdminProductRepo extends CrudRepository<AdminProductions, Integer> {
     List<AdminProductions> findByAdminproductname(String adminproductname);
+    List<AdminProductions> removeByAdminproductname(String adminproductname);
 }

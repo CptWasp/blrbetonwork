@@ -1,7 +1,6 @@
 package com.example.beton.controller;
 
 import com.example.beton.domain.AdminProductions;
-import com.example.beton.domain.Sales;
 import com.example.beton.domain.Warehouse;
 import com.example.beton.repos.AdminProductRepo;
 import com.example.beton.repos.WarehouseRepo;
@@ -19,7 +18,9 @@ import java.util.Map;
 public class AdminProductController {
     @Autowired
     private AdminProductRepo adminProductRepo;
-    @Autowired WarehouseRepo warehouseRepo;
+    @Autowired
+    private WarehouseRepo warehouseRepo;
+
 
 
     @GetMapping("/adminproductions")
@@ -51,6 +52,5 @@ public class AdminProductController {
 
         return "adminproducts";
     }
-
 
 }
