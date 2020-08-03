@@ -28,21 +28,21 @@ public class ReportController {
     @GetMapping("/report")
     public String getShowReports(Map<String, Object> model){
 //        производимые продукты
-        String[] adminProductArray = new String[20];
+        String[] adminProductArray = new String[1000];
 //        массив количества производимых товаров
-        Integer[] prices = new Integer[20];
+        Integer[] prices = new Integer[1000];
 //        массив проданных товаров
-        Integer[] salecount = new Integer[20];
+        Integer[] salecount = new Integer[1000];
 //        массив цен на проданные изделия
-        Double[] saletotal = new Double[20];
+        Double[] saletotal = new Double[1000];
 //        массив параметров использования бетона
-        Double[] btncount = new Double[20];
+        Double[] btncount = new Double[1000];
 //        массив параметров использования арматуры
-        Double[] armaturecount = new Double[20];
+        Double[] armaturecount = new Double[1000];
 //        массив параметров использования проволоки
-        Double[] wirecount = new Double[20];
+        Double[] wirecount = new Double[1000];
 //        массив параметров использования сетки
-        Double[] gridcount = new Double[20];
+        Double[] gridcount = new Double[1000];
 //        Сумма всех продаж
         Double reportsumm = 0.0;
 

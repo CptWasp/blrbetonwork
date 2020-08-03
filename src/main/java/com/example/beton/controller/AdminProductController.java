@@ -2,7 +2,9 @@ package com.example.beton.controller;
 
 import com.example.beton.domain.AdminProductions;
 import com.example.beton.domain.Sales;
+import com.example.beton.domain.Warehouse;
 import com.example.beton.repos.AdminProductRepo;
+import com.example.beton.repos.WarehouseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
@@ -17,6 +19,7 @@ import java.util.Map;
 public class AdminProductController {
     @Autowired
     private AdminProductRepo adminProductRepo;
+    @Autowired WarehouseRepo warehouseRepo;
 
 
     @GetMapping("/adminproductions")
@@ -36,6 +39,11 @@ public class AdminProductController {
         AdminProductions adminproduction = new AdminProductions(adminproductname, adminproductbeton,
                 adminproductwire, adminproductarmature, adminproductgrid, adminproducttotal);
         adminProductRepo.save(adminproduction);
+
+//        Создаем такое изделие на складе
+
+        Warehouse warehouse = new Warehouse(adminproductname, "0");
+        warehouseRepo.save(warehouse);
 
         Iterable<AdminProductions> adminproductions = adminProductRepo.findAll();
         model.put("adminproductions", adminproductions);

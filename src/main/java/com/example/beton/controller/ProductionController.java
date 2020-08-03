@@ -1,12 +1,10 @@
 package com.example.beton.controller;
 
-import com.example.beton.domain.AdminProductions;
-import com.example.beton.domain.Message;
-import com.example.beton.domain.Production;
-import com.example.beton.domain.User;
+import com.example.beton.domain.*;
 import com.example.beton.repos.AdminProductRepo;
 import com.example.beton.repos.MessageRepo;
 import com.example.beton.repos.ProductionRepo;
+import com.example.beton.repos.WarehouseRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -15,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.List;
 import java.util.Map;
 
 @Controller
@@ -24,6 +23,8 @@ public class ProductionController {
     private AdminProductRepo adminproductionsRepo;
     @Autowired
     private ProductionRepo productionRepo;
+    @Autowired
+    private WarehouseRepo warehouseRepo;
 
     @GetMapping("/")
     public String greeting(Map<String, Object> model) {
@@ -53,6 +54,9 @@ public class ProductionController {
 
         Iterable<Production> productions = productionRepo.findAll();
         Iterable<AdminProductions> adminproductions = adminproductionsRepo.findAll();
+
+        List<Warehouse> warehouse = warehouseRepo.findByWarehousename(prodname);
+
 
         model.put("productions", productions);
         model.put("adminproductions", adminproductions);
