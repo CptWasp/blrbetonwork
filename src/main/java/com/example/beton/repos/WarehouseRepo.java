@@ -8,4 +8,5 @@ import java.util.List;
 public interface WarehouseRepo extends CrudRepository<Warehouse, Integer> {
 
     List<Warehouse> findByWarehousename(String warehousename);
+    void deleteByWarehousename(String warehousename);
 }

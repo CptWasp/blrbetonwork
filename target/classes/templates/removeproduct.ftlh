@@ -54,17 +54,18 @@
 
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-12 col-sm-12 col-md-12 col-lg-12">
-            <form method="post" action="/removeproduct" enctype="multipart/form-data">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-3">
+            <form method="post">
                 <div class="form-group">
-                <select class="form-control" name="removname">
-                    <#list adminproductions as adminproduction>
-                    <option class="dropdown-item" value="${adminproduction.adminproductname?string}">${adminproduction.adminproductname?string}</option>
-                </#list>
-                </select>
-            </div>
+                    <select class="form-control" name="removname">
+                        <#list adminproductions as adminproduction>
+                        <option class="dropdown-item" value="${adminproduction.adminproductname?string}">${adminproduction.adminproductname?string}</option>
+                    </#list>
+                    </select>
+                </div>
+                <input type="hidden" name="_csrf" value="${_csrf.token}" />
                 <div class="form-group">
-                   <button type="submit" class="btn btn-danger">Удалить</button>
+                    <button type="submit" class="btn btn-danger">Удалить</button>
                 </div>
             </form>
         </div>
