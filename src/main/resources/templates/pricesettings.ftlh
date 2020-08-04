@@ -27,7 +27,7 @@
                     Отчеты
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Отчет по диапазонам</a>
+                    <a class="dropdown-item" href="/diapazone">Отчет по диапазонам</a>
                     <a class="dropdown-item" href="/report">Отчет за все время</a>
                 </div>
             </li>

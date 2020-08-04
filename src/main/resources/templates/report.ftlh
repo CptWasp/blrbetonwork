@@ -25,7 +25,7 @@
                     Отчеты
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Отчет по диапазонам</a>
+                    <a class="dropdown-item" href="/diapazone">Отчет по диапазонам</a>
                     <a class="dropdown-item" href="/report">Отчет за все время</a>
                 </div>
             </li>
@@ -50,6 +50,8 @@
     </div>
 </nav>
 
+
+
 <div class="container-fluid">
     <div class="row">
         <div class="py-2 px-3 col-lg-2 col-md-2 col-sm-2 col-2 dur">
@@ -66,8 +68,6 @@
             <h6>Использовано проволоки</h6></div>
         <div class="py-2 px-3 col-lg-1 col-md-1 col-sm-1 col-1 dur">
             <h6>Использовано сетки</h6></div>
-        <div class="py-2 px-3 col-lg-1 col-md-1 col-sm-1 col-1 dur">
-            <h6>Затраты на материалы</h6></div>
         <div class="py-2 px-3 col-lg-1 col-md-1 col-sm-1 col-1 dur">
             <h6>Прибыль за все время</h6></div>
     </div>
@@ -122,10 +122,7 @@
                 </#if>
             </#list>
         </div>
-        <div class="pr-2 col-lg-1 col-md-1 col-sm-1 col-1 dur">
-
-        </div>
-        <div class="col-lg-1 col-md-1 col-sm-1 col-1 dur">
+        <div class="col-lg-2 col-md-2 col-sm-2 col-2 dur">
             <#list sattls as sattl>
                 <#if sattl??>
                     <p>${sattl} руб.</p>
@@ -134,7 +131,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="dur offset-lg-9 offset-md-9 offset-sm-9 offset-9 col-2 col-sm-2 col-md-2 col-lg-2">
+        <div class="dur offset-lg-8 offset-md-8 offset-sm-8 offset-8 col-4 col-sm-4 col-md-4 col-lg-4">
             <b>Сумма: ${reportsumm}</b>
         </div>
     </div>

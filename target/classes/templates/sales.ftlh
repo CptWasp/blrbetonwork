@@ -25,7 +25,7 @@
                     Отчеты
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="#">Отчет по диапазонам</a>
+                    <a class="dropdown-item" href="/diapazone">Отчет по диапазонам</a>
                     <a class="dropdown-item" href="/report">Отчет за все время</a>
                 </div>
             </li>
@@ -67,9 +67,6 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" name="saletotal" placeholder="Цена" />
-                </div>
-                <div class="form-group">
                     <input type="text" class="form-control" name="salecount" placeholder="Количество" />
                 </div>
                 <input type="hidden" name="_csrf" value="${_csrf.token}" />
@@ -88,7 +85,6 @@
                         <tr>
                           <th scope="col">Дата</th>
                           <th scope="col">Наименование</th>
-                          <th scope="col">Цена</th>
                           <th scope="col">Количество</th>
                           <th scope="col">Имя создателя</th>
                         </tr>
@@ -98,8 +94,7 @@
                         <tr>
                           <th scope="row">${sale.saledate}</th>
                           <td>${sale.salename}</td>
-                          <td>${sale.saletotal}</td>
-                          <td>${sale.salecount}</td>
+                          <td>${sale.salecount} шт.</td>
                           <td>${sale.authorName}</td>
                         </tr>
                       </#list>

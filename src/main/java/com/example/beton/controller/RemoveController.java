@@ -19,7 +19,7 @@ import java.util.Map;
 
 
 
-//@PreAuthorize("hasAuthority('ADMIN')")
+@PreAuthorize("hasAuthority('ADMIN')")
 @Service
 @Controller
 public class RemoveController {

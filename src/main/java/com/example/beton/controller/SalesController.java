@@ -38,10 +38,9 @@ public class SalesController {
 
     @PostMapping("/sales")
     public String addProduction(@AuthenticationPrincipal User user, @RequestParam String saledate,
-                                @RequestParam String salename,
-                                @RequestParam String saletotal, @RequestParam String salecount,
+                                @RequestParam String salename, @RequestParam String salecount,
                                 Map<String, Object> model){
-        Sales sale = new Sales(saledate, salename, saletotal, salecount, user);
+        Sales sale = new Sales(saledate, salename, "0", salecount, user);
         saleRepo.save(sale);
 
         Iterable<Sales> sales = saleRepo.findAll();
